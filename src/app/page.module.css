@@ -13,3 +13,18 @@
   height: 300px;
   width: 300px;
 }
+
+
+.likeBtn{
+  padding: 3px;
+  margin: 10px;
+
+}
+
+
+
+.unlikeBtn{
+  padding: 3px;
+  margin: 10px;
+  background-color: rgb(0, 191, 205);
+}
