@@ -1,0 +1,15 @@
+.btn{
+  background-color: aquamarine;
+}
+
+.card{
+  background-color: rgb(233, 222, 244);
+  margin: 20px;
+  padding: 40px;
+  width: 50%;
+}
+
+.productImage{
+  height: 300px;
+  width: 300px;
+}
