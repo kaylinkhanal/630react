@@ -1,17 +1,19 @@
 'use client'
-import React from 'react'
-import Link from 'next/link'
-import Footer from '../../components/footer/page'
+import React,{useState, useEffect} from 'react'
 
+import Card from '../../components/card/page'
 const Register = () => {
-  const [num, setNum] = useState(10)
-  const increment = ()=>{
-    setNum(num + 1)
-  }
+  const prizes = ['Car' , 'House', 'Jet', 'Teddy Bear']
+  const [currentPick, setCurrentPick] = useState(2)
+
   return (
     <div>
-      {num}
-      <Footer increment={increment}/>
+      {prizes.map((item,id)=>{
+        return <Card item={item} currentPick={currentPick} id={id}/>
+      })}
+      <button>Start</button>
+      <button>Stop</button>
+
     </div>
   )
 }

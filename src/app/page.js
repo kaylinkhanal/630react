@@ -1,17 +1,51 @@
 'use client'
 import React,{useState} from 'react'
-import { GrLike } from "react-icons/gr";
-import styles from './page.module.css'
 const page = () => {
-  const answer = ['JAVASCRIPT', 'REACT', 'NEXT']
-  const question = ['JA AS RI T', 'R A T', 'N X ']
-  const randomList = Math.floor(Math.random()*3)
-  const randomName = question[randomList]
+  const answer = 'JAVASCRIPT'
+  let [randomName, setRandomName] = useState('J V S RI T')
+  const [lives,setLives] = useState(5)
+  const [wrongInputs, setWrongInputs] = useState('')
+
+  const checkLetters = (e,id)=>{
+    const expectedChar = answer[id]
+    if(e.target.value.toUpperCase() !== expectedChar && e.target.value != ''){
+      setLives(lives-1)
+      setWrongInputs(wrongInputs+e.target.value)
+    }else{
+      const expectedOutput = randomName.split('').map((item,id)=>{
+        if(item== ' ' && answer[id]== e.target.value.toUpperCase()){
+        return e.target.value.toUpperCase()
+        }
+        return item
+        })
+        setRandomName(expectedOutput.join(''))
+    }
+  }
+
+  if(lives === 0 ){
+    return (
+      <div>
+        You lost you loser!
+      </div>
+    )
+  }
   return (
-    <div>
-      {randomName.split('').map((item)=>{
-        return <input value={item}/>
+    <div> 
+      
+      {randomName.split('').map((item , id)=>{
+        if (item === ' ' ){
+          return <input onChange={(e)=>checkLetters(e,id)}/>
+        }
+        else{
+          return <input value={item}/>
+        }
+        
       })}
+      {randomName}
+      <br/>
+      Remaining Lives: {lives}
+      <br/>
+      You have tried: {wrongInputs.toUpperCase()}
     </div>
   )
 }

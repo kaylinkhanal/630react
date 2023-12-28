@@ -5,26 +5,6 @@
 .card{
   background-color: rgb(233, 222, 244);
   margin: 20px;
-  padding: 40px;
+  padding: 20px;
   width: 50%;
-}
-
-.productImage{
-  height: 300px;
-  width: 300px;
-}
-
-
-.likeBtn{
-  padding: 3px;
-  margin: 10px;
-
-}
-
-
-
-.unlikeBtn{
-  padding: 3px;
-  margin: 10px;
-  background-color: rgb(0, 191, 205);
 }
